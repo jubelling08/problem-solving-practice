@@ -1,2 +1,2 @@
 # problem-solving-practice
-My Python exercises and certificates as I learn programming.
+My Python exercises and certificate as I learn programming.
