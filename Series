@@ -1,0 +1,32 @@
+# The Event Organizing Company "Buzzcraft" focuses event management in a way that creates a win-win situation for all involved stakeholders. Buzzcraft don't look at building one time associations with clients, instead, aim at creating long-lasting collaborations that will span years to come. This goal of the company has helped them evolve and expand big with organizing many events till date.
+# The number of events that the company organizes every month is recorded sensibly and is seemed to have followed a specific series like: 30, 35, 38, 41, 54, 53 ...
+# Write a program which takes an integer N as the input and will output the series till the Nth term.
+# Input Format:
+# First line of the input is an integer N.
+# Output Format:
+# Output a single line the series till Nth term, each separated by a comma.
+# Refer sample input and output for formatting specifications.
+# Sample Input 1:
+# 5
+# Sample Output 1:
+# 30 35 38 41 54
+# Sample Input 2:
+# 10
+# Sample Output 2:
+# 30 35 38 41 54 53 78 71 110 95
+
+N = int(input())
+
+terms = []
+
+for i in range(1, N + 1 ):
+    if i % 2 == 1:
+        k = ( i - 1 ) // 2
+        term = 30 + 4 * k * (k + 1)
+    else:
+        k = i // 2
+        term = 35 + 3 * k * (k - 1)
+
+    terms.append(term)
+
+print(" ".join(map(str, terms)))
