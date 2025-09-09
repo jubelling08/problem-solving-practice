@@ -1,0 +1,30 @@
+# James and Jones had a discussion on palindrome strings. They were assigned to a task in which they had to check if the given string is a palindrome or not and if not they had to make it as a palindrome.
+#The condition for the task was as follows:
+# • Input and output strings should be case sensitive.
+# Help them with a program to make their task easier.
+# Input format:
+# Input consists of a string.
+# output format:
+# the output will be a palindrome string.
+# Sample Input:
+# Tamil
+# Sample Output
+# TamaT
+# Sample Input:
+# Amphi
+# Sample Output
+# AmpmA
+
+string = input().strip()
+
+if string == string[::-1]:
+    print(string)
+
+else:
+    half = len(string) // 2
+    if len(string) % 2 == 0:
+        result = string[:half] + string[:half][::-1]
+    else:
+        result = string[:half+1] + string[:half][::-1]
+
+    print(result)
