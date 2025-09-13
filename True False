@@ -1,0 +1,40 @@
+##################
+Write a python function which accepts three numbers and returns True if
+a. one of the three numbers is "close" to any one of the other numbers (differing from a number by at most 2), and
+b.Number that is left out is "far", differing from both other values by 3 or more.
+Return false if the above mentioned conditions are not satisfied.
+Sample Input 1:
+5
+0
+3
+Sample Output 1:
+True
+Sample Input 2:
+5
+6
+7
+Sample Output 2:
+False
+##################
+
+def close_far(a, b, c):
+    # case 1: a and b are close, c is far
+    if abs(a - b) <= 2 and abs(c - a) >= 3 and abs(c - b) >= 3:
+        return True
+    # case 2: a and c are close, b is far
+    if abs(a - c) <= 2 and abs(b - a) >= 3 and abs(b - c) >= 3:
+        return True
+    # case 3: b and c are close, a is far
+    if abs(b - c) <= 2 and abs(a - b) >= 3 and abs(a - c) >= 3:
+        return True
+    # otherwise, conditions not satisfied
+    return False
+
+
+# take inputs
+a = int(input())
+b = int(input())
+c = int(input())
+
+# print only the final result
+print(close_far(a, b, c))
