@@ -1,0 +1,107 @@
+###################
+Arun and Arya are very good friends. They started playing a card game. In this game, each of them will have a set of cards.
+Each card consists of a number and a symbol. Each player will have a set of cards and that set consists 16 cards and it has 4 types of cards named as (R, Q,  P,  S) and there will be 4 cards of each type numbered as (If card symbol like R then card contains details like R 1, R 2, R 3, R 4). So they started playing the game.
+Initially, cards are flipped and shuffled. At the time each player can flip one card. According to the rules of card game, Score of each player depending on card types that they have got(for card R total sum of R cards will increase by multiplying by 10, similarly for Q it’s 10 and for P it’s 7 and S it’s 5), and player who got the highest score is the winner.
+Find the winner of the card game.
+Input format
+1st input is an integer indicates the number of times each player can flip the card. (1>=n<=16).
+The next line of input indicates details of the flipped card, like card name[should be b/w[R, Q, P, S] and card number[b/w 1-4].
+(follow the sample input and output format)
+Output format
+The output consists of the total scores and status of the game.
+Refer to sample input and output for formatting details.
+Note: All text in bold corresponds to the input and the rest corresponds to output [Refer to sample input and output format].
+Use dictionary to solve the Problem
+Sample Input and Output 1:
+Enter number of time player can flip the card
+3
+Arun flip the card
+R
+1
+Arya flip the card
+S
+2
+Arun flip the card
+P
+1
+Arya flip the card
+R
+3
+Arun flip the card
+R
+4
+Arya flip the card
+P
+3
+Total scores 57 61
+Arya won the game
+Sample Input and Output 2:
+Enter number of time player can Flip the card
+2
+Arun flip the card
+R
+2
+Arya flip the card
+Q
+2
+Arun flip the card
+P
+3
+Arya flip the card
+S
+3
+Total scores  41 35
+Arun won the game
+Sample Input and Output 3:
+Enter number of time player can flip the card
+2
+Arun flip the card
+R
+2
+Arya flip the fard
+P
+3
+Arun flip the card
+P
+3
+Arya flip the card
+Q
+2
+Total scores  41 41
+Game tied
+###################
+
+# multipliers for each card type
+mult = {'R': 10, 'Q': 10, 'P': 7, 'S': 5}
+
+# totals for both players
+arun_score = 0
+arya_score = 0
+
+# number of times each player flips
+print("Enter number of time player can flip the card")
+n = int(input())
+
+for _ in range(n):
+    # Arun's turn
+    print("Arun flip the card")
+    sym = input().strip()        # card symbol (R/Q/P/S)
+    num = int(input().strip())   # card number (1-4)
+    arun_score += num * mult.get(sym, 0)
+
+    # Arya's turn
+    print("Arya flip the card")
+    sym = input().strip()
+    num = int(input().strip())
+    arya_score += num * mult.get(sym, 0)
+
+# print totals and winner
+print(f"Total scores {arun_score} {arya_score}")
+
+if arun_score > arya_score:
+    print("Arun won the game")
+elif arya_score > arun_score:
+    print("Arya won the game")
+else:
+    print("Game tied")
+
