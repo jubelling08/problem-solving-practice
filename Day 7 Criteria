@@ -1,0 +1,22 @@
+###########
+Write a program to generate the following series upto 'n' terms
+21,25,33,49,81,...
+Input Format:
+Input consists of a single integer which corresponds to n.
+Output Format:
+Output consists of the terms in the series separated by a blank space.
+Sample Input:
+6
+Sample Output:
+21 25 33 49 81 145
+###########
+
+n = int(input())
+
+term = 21
+increment = 4
+
+for i in range(n):
+    print(term, end=" ")
+    term += increment
+    increment *= 2
