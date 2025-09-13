@@ -1,0 +1,41 @@
+###################
+The Table tennis Challenger Series is the springboard to fame for the future stars of professional table tennis. Peter is very passionate towards table tennis and made his debut in the first league match of the Series against a prominent player Horejsi.
+Peter found some statistics of matches which described who won the points in order. A game shall be won by the player first scoring 11 points except in the case when both players have 10 points each, then the game shall be won by the first player subsequently gaining a lead of 2 points. Could you please help Peter find out who the winner was from the given statistics? (It is guaranteed that statistics represent always a valid, finished match.)
+Input Format:
+First and only line of the input consists of a binary string S, which describes a match. '0' means Peter lose a point, whereas '1' means he won the point.
+Output Format:
+Output on a separate line a string describing who won the match. If Peter won then print "Win" (without quotes), otherwise print "Lose" (without quotes).
+Refer sample input and output for formatting specifications.
+Sample Input 1:
+0101111111111
+Sample Output 1:
+Win
+Explanation:
+Peter won the match 11:2, his opponent won just two points, the first and the third of the match.
+Sample Input 2:
+11100000000000
+Sample Output 2:
+Lose
+Explanation:
+Peter lost this match 11:3, however he started very well the match, he won the first three points in a row, but maybe he got tired and after that lost 11 points in a row.
+###################
+
+S = input().strip()
+
+peter = 0
+opponent = 0
+
+for ch in S:
+    if ch == '1':
+        peter += 1
+    else:
+        opponent += 1
+    
+    # check if game is over
+    if (peter >= 11 or opponent >= 11) and abs(peter - opponent) >= 2:
+        break
+
+if peter > opponent:
+    print("Win")
+else:
+    print("Lose")
